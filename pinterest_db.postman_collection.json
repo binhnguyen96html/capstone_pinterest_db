@@ -1,0 +1,411 @@
+{
+	"info": {
+		"_postman_id": "f8be8f11-5cfd-44ba-96ec-f7d6b865f3ec",
+		"name": "pinterest_db",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22242528"
+	},
+	"item": [
+		{
+			"name": "trang đăng nhập",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"binh4@gmail.com\",\r\n    \"mat_khau\": \"1234\",\r\n    \"ho_ten\": \"Binh Nguyen 4\",\r\n    \"tuoi\": 27,\r\n    \"anh_dai_dien\": \"anh 4\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/user/sign-up",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"sign-up"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "trang đăng ký",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"binh1@gmail.com\",\r\n    \"mat_khau\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chỉnh sửa thong tin cá nhân",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5ndW9pX2R1bmdfaWQiOjQsImVtYWlsIjoiYmluaDRAZ21haWwuY29tIiwibWF0X2toYXUiOiIkMmIkMTAkNEdxaXRMZi44bmZ5VWZHeldFS0s2TzQ0dUt5c0lNQ2VXTGs4bFVQc1dEQ0dEQ0VaVkRFSGkiLCJob190ZW4iOiJCaW5oIE5ndXllbiA0IiwidHVvaSI6MjcsImFuaF9kYWlfZGllbiI6ImFuaCA0In0sImlhdCI6MTY5NDU4NTc0OSwiZXhwIjoxNjk0NTg2MDQ5fQ.SSpmsTF6zD_CpIUXkcjetUcreohG0BBMZQeKXgE8VT4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"mat_khau\": \"1234\",\r\n    \"ho_ten\": \"Binh Nguyen 4\",\r\n    \"tuoi\": 30,\r\n    \"anh_dai_dien\": \"anh 4\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/user/update-user/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"update-user",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "thêm một ảnh của user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/binhn/OneDrive/Pictures/BINH-DRIVE 1.jpg"
+						},
+						{
+							"key": "ten_hinh",
+							"value": "anh 2",
+							"type": "text"
+						},
+						{
+							"key": "mo_ta",
+							"value": "noi dung mo ta 2",
+							"type": "text"
+						},
+						{
+							"key": "nguoi_dung_id",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/pic/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"pic",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "danh sách ảnh về",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5ndW9pX2R1bmdfaWQiOjEsImVtYWlsIjoiYmluaDFAZ21haWwuY29tIiwibWF0X2toYXUiOiIkMmIkMTAkUjNGQmFhcHBuWGVpR2J2NndmQlVpdXhGaWc4cVAyMG9zenFicmJoLk9PUEZjZkNYdDVzRXEiLCJob190ZW4iOiJCaW5oIE5ndXllbiAxIiwidHVvaSI6MjcsImFuaF9kYWlfZGllbiI6ImFuaCAxIn0sImlhdCI6MTY5NDY3MjAxMywiZXhwIjoxNjk0NjcyMzEzfQ.ulxjEASwUortIOEEAfu7PmjrfugmkWZchT1hlAq5P8s",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/pic/get-all-pic",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"pic",
+						"get-all-pic"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tìm kiếm danh sách ảnh theo tên",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/pic/get-pic-by-name/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"pic",
+						"get-pic-by-name",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "thông tin ảnh và người tạo ảnh bằng id ảnh",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/pic/get-pic-and-user-info/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"pic",
+						"get-pic-and-user-info",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Để lưu thông tin bình luận của người dùng với hình ảnh",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nguoi_dung_id\": 1,\r\n    \"hinh_id\": 2,\r\n    \"noi_dung\": \"binh luan anh 2 cuar user 1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/comt/create-comt",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"comt",
+						"create-comt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "thông tin bình luận theo id ảnh",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/pic/get-comt-of-pic/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"pic",
+						"get-comt-of-pic",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Thông tin user",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5ndW9pX2R1bmdfaWQiOjEsImVtYWlsIjoiYmluaDFAZ21haWwuY29tIiwibWF0X2toYXUiOiIkMmIkMTAkUjNGQmFhcHBuWGVpR2J2NndmQlVpdXhGaWc4cVAyMG9zenFicmJoLk9PUEZjZkNYdDVzRXEiLCJob190ZW4iOiJCaW5oIE5ndXllbiAxIiwidHVvaSI6MjcsImFuaF9kYWlfZGllbiI6ImFuaCAxIn0sImlhdCI6MTY5NDY3MjAxMywiZXhwIjoxNjk0NjcyMzEzfQ.ulxjEASwUortIOEEAfu7PmjrfugmkWZchT1hlAq5P8s",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/user/get-user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"get-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Danh sách ảnh đã tạo theo user id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/user/get-pic-by-userid/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"get-pic-by-userid",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Xóa ảnh đã tạo theo id ảnh",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/pic/delete-pic-by-picid/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"pic",
+						"delete-pic-by-picid",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lưu ảnh",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"nguoi_dung_id\": 1,\r\n    \"hinh_id\": 1,\r\n    \"ngay_luu\": \"2023-09-15\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/savedpic/save-pic-by-picid/9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"savedpic",
+						"save-pic-by-picid",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Thông tin đã lưu hình này chưa theo id ảnh",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/savedpic/check-pic-saved/9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"savedpic",
+						"check-pic-saved",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Danh sách ảnh đã lưu theo user id",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
